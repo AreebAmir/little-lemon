@@ -17,10 +17,10 @@ class MenuViewTest(TestCase):
         self.test2 = Menu.objects.create(title="TEST2", price=80, inventory=100)
 
     def login(self) -> None:
-        self.client.login(username='testuser', password='testpassword')
+        self.client.login(username='username', password='password')
 
     def test_getall(self):
-        self.loginAsTestUser()
+        self.login()
         response = self.client.get(reverse('items'))
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 
